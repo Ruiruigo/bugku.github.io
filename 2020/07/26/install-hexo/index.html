@@ -238,14 +238,14 @@
 <a id="more"></a>
 
 <h1 id="Hexo安装教程"><a href="#Hexo安装教程" class="headerlink" title="Hexo安装教程"></a>Hexo安装教程</h1><h3 id="hexo简介"><a href="#hexo简介" class="headerlink" title="hexo简介"></a>hexo简介</h3><p>Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Coding上，是搭建博客的首选框架。大家可以进入<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo官网</a>进行详细查看，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。</p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p><strong>Windows</strong>：到git官网上下载,<a href="https://gitforwindows.org/" target="_blank" rel="noopener">Download git</a>,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p><strong>Windows</strong>：到git官网上下载<a href="https://gitforwindows.org/" target="_blank" rel="noopener">Download git</a>下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。</p>
 <p><strong>Linux</strong>：对linux来说实在是太简单了，因为最早的git就是在linux上编写的，只需要一行代码</p>
 <pre><code class="hljs shell">sudo apt-get install git
 sudo yum install git</code></pre>
 
 <p>安装好后，用<code>git --version</code> 来查看一下版本</p>
 <h3 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h3><p>Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。</p>
-<p><strong>Windows</strong>：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">nodejs</a>选择LTS版本就行了。</p>
+<p><strong>Windows</strong>：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">nodejs</a>选择LTS版本就行了</p>
 <p><strong>Linux</strong>：</p>
 <pre><code class="hljs shell">sudo apt-get install nodejs
 sudo apt-get install npm</code></pre>
@@ -256,7 +256,7 @@ npm -v</code></pre>
 
 <p>检查一下有没有安装成功</p>
 <p>顺便说一下，windows在git安装完后，就可以直接使用git bash来敲命令行了，不用自带的cmd，cmd有点难用。</p>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>前面git和nodejs安装好后，就可以安装hexo了，你可以先创建一个文件夹blog，然后<code>cd</code>到这个文件夹下（或者在这个文件夹下直接右键git bash打开）。</p>
+<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>前面git和nodejs安装好后，就可以安装hexo了，你可以先创建一个文件夹blog，然后<code>cd</code>到这个文件夹下（或者在这个文件夹下直接右键git bash打开）</p>
 <pre><code class="hljs shell">npm install -g hexo-cli</code></pre>
 
 <p>依旧用<code>hexo -v</code>查看一下版本</p>
@@ -288,7 +288,7 @@ hexo list &lt;type&gt;		#列出网站资料</code></pre>
 
 <p>打开hexo的服务，在浏览器输入localhost:4000就可以看到你生成的博客了。</p>
 <h2 id="上传Github并且替换个人域名"><a href="#上传Github并且替换个人域名" class="headerlink" title="上传Github并且替换个人域名"></a>上传Github并且替换个人域名</h2><p>创建一个和你用户名相同的仓库，后面加.github.io，只有这样，将来要部署到GitHub page的时候，才会被识别，也就是xxxx.github.io，其中xxx就是你注册GitHub的用户名</p>
-<h3 id="生成SSH添加Github"><a href="#生成SSH添加Github" class="headerlink" title="生成SSH添加Github"></a>生成SSH添加Github</h3><p>回到你的git bash中，</p>
+<h3 id="生成SSH添加Github"><a href="#生成SSH添加Github" class="headerlink" title="生成SSH添加Github"></a>生成SSH添加Github</h3><p>回到git bash</p>
 <pre><code class="hljs routeros">git<span class="hljs-built_in"> config </span>--global user.name <span class="hljs-string">"yourname"</span>
 git<span class="hljs-built_in"> config </span>--global user.email <span class="hljs-string">"youremail"</span></code></pre>
 
@@ -297,7 +297,7 @@ git<span class="hljs-built_in"> config </span>--global user.email <span class="h
 <pre><code class="hljs routeros">git<span class="hljs-built_in"> config </span>user.name
 git<span class="hljs-built_in"> config </span>user.email</code></pre>
 
-<p>然后创建SSH,一路回车</p>
+<p>然后创建SSH一路回车</p>
 <pre><code class="hljs excel">ssh-keygen -<span class="hljs-built_in">t</span> rsa -C <span class="hljs-string">"xxx@xx.com"</span></code></pre>
 
 <p>ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。</p>
@@ -363,8 +363,8 @@ hexo deploy</code></pre>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/07/24/test/">
-                        <span class="hidden-mobile">test</span>
+                      <a href="/2020/07/24/hello-world/">
+                        <span class="hidden-mobile">Hello World</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
