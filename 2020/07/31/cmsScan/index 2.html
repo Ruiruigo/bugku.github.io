@@ -17,7 +17,7 @@
   <meta name="description" content="我的Blog，记录关于网络安全相关文章或者搬运相关文章。">
   <meta name="author" content="xxx">
   <meta name="keywords" content="Web,安全,网络安全,POC,EXP,Python,渗透">
-  <title>Hexo安装教程 - Ruiruigo’s Blog</title>
+  <title>CMS扫描器 - Ruiruigo’s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -159,7 +159,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/wz/installhexo/hexo.jpg') no-repeat center center;
+         style="background: url('/img/mebg.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -172,8 +172,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-07-26 22:34" pubdate>
-      2020年7月26日 晚上
+    <time datetime="2020-07-31 10:03" pubdate>
+      2020年7月31日 上午
     </time>
   </div>
 
@@ -183,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      99 字
     </span>
   
 
@@ -193,7 +193,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      1
        分钟
     </span>
   
@@ -231,121 +231,40 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Hexo安装教程</h1>
+            <h1 style="display: none">CMS扫描器</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="Hexo安装教程"><a href="#Hexo安装教程" class="headerlink" title="Hexo安装教程"></a>Hexo安装教程</h1><h3 id="hexo简介"><a href="#hexo简介" class="headerlink" title="hexo简介"></a>hexo简介</h3><p>Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Coding上，是搭建博客的首选框架。大家可以进入<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo官网</a>进行详细查看，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。</p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p><strong>Windows</strong>：到git官网上下载<a href="https://gitforwindows.org/" target="_blank" rel="noopener">Download git</a>下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。</p>
-<p><strong>Linux</strong>：对linux来说实在是太简单了，因为最早的git就是在linux上编写的，只需要一行代码</p>
-<pre><code class="hljs shell">sudo apt-get install git
-sudo yum install git</code></pre>
+              <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><strong>cmsScan基于特征匹配达到识别CMS的效果</strong>    — 字典库🐂🍺 cmsScan就🐂🍺</p>
+<p>​    cmsScanWEB 正在赶来的路上 🐎 ～</p>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><pre><code class="hljs shell">python3 cmsScan.py -u &lt;URL&gt; -f &lt;字典文件&gt; -t &lt;线程，默认150线程&gt;
+=======
+-u : 支持域名和IP http://127.0.0.1  #末尾去除 ‘/’
+-f : 字典文件 格式： /pic/logo-tw.png|用友U8|133ddfebd5e24804f97feb4e2ff9574b
+-t : 线程默认150</code></pre>
 
-<p>安装好后，用<code>git --version</code> 来查看一下版本</p>
-<h3 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h3><p>Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。</p>
-<p><strong>Windows</strong>：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">nodejs</a>选择LTS版本就行了</p>
-<p><strong>Linux</strong>：</p>
-<pre><code class="hljs shell">sudo apt-get install nodejs
-sudo apt-get install npm</code></pre>
-
-<p>安装完后，打开命令行</p>
-<pre><code class="hljs shell">node -v
-npm -v</code></pre>
-
-<p>检查一下有没有安装成功</p>
-<p>顺便说一下，windows在git安装完后，就可以直接使用git bash来敲命令行了，不用自带的cmd，cmd有点难用。</p>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>前面git和nodejs安装好后，就可以安装hexo了，你可以先创建一个文件夹blog，然后<code>cd</code>到这个文件夹下（或者在这个文件夹下直接右键git bash打开）</p>
-<pre><code class="hljs shell">npm install -g hexo-cli</code></pre>
-
-<p>依旧用<code>hexo -v</code>查看一下版本</p>
-<p>至此就全部安装完了。</p>
-<p>接下来初始化一下hexo</p>
-<pre><code class="hljs shell">hexo init myblog</code></pre>
-
-<p>这个myblog可以自己取什么名字都行，然后</p>
-<pre><code class="hljs shell">cd myblog //进入这个myblog文件夹
-npm install</code></pre>
-
-<p>新建完成后，指定文件夹目录下有:</p>
-<pre><code class="hljs bash">.
-├── _config.yml		<span class="hljs-comment">#网站的 配置 信息，您可以在此配置大部分的参数。</span>
-├── package.json		<span class="hljs-comment">#应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除</span>
-├── scaffolds		<span class="hljs-comment">#模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</span>
-├── <span class="hljs-built_in">source</span>		<span class="hljs-comment">#资源文件夹是存放用户资源的地方。</span>
-|   ├── _drafts		<span class="hljs-comment">#草稿</span>
-|   └── _posts		<span class="hljs-comment">#文章</span>
-└── themes		<span class="hljs-comment">#主题 文件夹。Hexo 会根据主题来生成静态页面。</span></code></pre>
-
-<pre><code class="hljs asciidoc">hexo generate  #生产静态文件
-hexo server		#开启web服务
-====
-其它命令
-hexo deploy		#部署网站
-hexo clean		#清除缓存文件 (db.json) 和已生成的静态文件 (public)
-hexo list &lt;type&gt;		#列出网站资料</code></pre>
-
-<p>打开hexo的服务，在浏览器输入localhost:4000就可以看到你生成的博客了。</p>
-<h2 id="上传Github并且替换个人域名"><a href="#上传Github并且替换个人域名" class="headerlink" title="上传Github并且替换个人域名"></a>上传Github并且替换个人域名</h2><p>创建一个和你用户名相同的仓库，后面加.github.io，只有这样，将来要部署到GitHub page的时候，才会被识别，也就是xxxx.github.io，其中xxx就是你注册GitHub的用户名</p>
-<h3 id="生成SSH添加Github"><a href="#生成SSH添加Github" class="headerlink" title="生成SSH添加Github"></a>生成SSH添加Github</h3><p>回到git bash</p>
-<pre><code class="hljs routeros">git<span class="hljs-built_in"> config </span>--global user.name <span class="hljs-string">"yourname"</span>
-git<span class="hljs-built_in"> config </span>--global user.email <span class="hljs-string">"youremail"</span></code></pre>
-
-
-<p>这里的yourname输入你的GitHub用户名，youremail输入你GitHub的邮箱。这样GitHub才能知道你是不是对应它的账户。可以用以下两条，检查一下你有没有输对</p>
-<pre><code class="hljs routeros">git<span class="hljs-built_in"> config </span>user.name
-git<span class="hljs-built_in"> config </span>user.email</code></pre>
-
-<p>然后创建SSH一路回车</p>
-<pre><code class="hljs excel">ssh-keygen -<span class="hljs-built_in">t</span> rsa -C <span class="hljs-string">"xxx@xx.com"</span></code></pre>
-
-<p>ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。</p>
-<p>而后在GitHub的setting中，找到Deploy keys的设置选项，点击Add deploy key 把你的id_rsa.pub里面的信息复制进去。</p>
-<p>在gitbash中，查看是否成功</p>
-<pre><code class="hljs shell">ssh -T git@github.com</code></pre>
-
-<h3 id="将hexo部署到Github"><a href="#将hexo部署到Github" class="headerlink" title="将hexo部署到Github"></a>将hexo部署到Github</h3><p>将hexo生成的文章部署到GitHub上，打开站点配置文件 <code>_config.yml</code>，翻到最后，修改为你的GitHub账户</p>
-<pre><code class="hljs less"><span class="hljs-attribute">deploy</span>:
-  <span class="hljs-attribute">type</span>: git
-  <span class="hljs-attribute">repo</span>: <span class="hljs-attribute">https</span>:<span class="hljs-comment">//github.com/xxx/xxx.github.io.git</span>
-  <span class="hljs-attribute">branch</span>: master</code></pre>
-
-<p>这个时候需要先安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub。</p>
-<pre><code class="hljs shell">npm install hexo-deployer-git --save</code></pre>
-
-<p>然后</p>
-<pre><code class="hljs verilog">hexo clean
-hexo <span class="hljs-keyword">generate</span>
-hexo deploy</code></pre>
-
-<p>过一会儿就可以在<a href="http://xxx.github.io这个网站看到你的博客了！！" target="_blank" rel="noopener">http://xxx.github.io这个网站看到你的博客了！！</a></p>
-<h3 id="设置个人域名"><a href="#设置个人域名" class="headerlink" title="设置个人域名"></a>设置个人域名</h3><p>192.30.252.153 和 192.30.252.154 是GitHub的服务器地址。</p>
-<p>在域名解析记录里面把Github地址填入</p>
-<p>登录GitHub，进入之前创建的仓库，点击settings-Options-Choose a theme 进去随便选一个出来后从 Custom domain，输入你的域名</p>
-<p>然后在你的博客文件source中创建一个名为CNAME文件，不要后缀。写上你的域名</p>
-<p>最后，在gitbash中，输入</p>
-<pre><code class="hljs properties"><span class="hljs-attr">hexo</span> <span class="hljs-string">clean</span>
-<span class="hljs-attr">hexo</span> <span class="hljs-string">g</span>
-<span class="hljs-attr">hexo</span> <span class="hljs-string">d</span></code></pre>
-
-<h2 id="新的文章"><a href="#新的文章" class="headerlink" title="新的文章"></a>新的文章</h2><pre><code class="hljs gauss">hexo <span class="hljs-keyword">new</span> [layout] &lt;<span class="hljs-built_in">title</span>&gt;</code></pre>
-
-<p>然后在source/_post中打开markdown文件，就可以开始编辑了。当你写完的时候，再更新</p>
-<pre><code class="hljs properties"><span class="hljs-attr">hexo</span> <span class="hljs-string">clean</span>
-<span class="hljs-attr">hexo</span> <span class="hljs-string">g</span>
-<span class="hljs-attr">hexo</span> <span class="hljs-string">d</span></code></pre>
-
-<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">https://blog.csdn.net/sinat_37781304/article/details/82729029</a>
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a>
-<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><p><img src="/img/wz/cmsScan/cmsScan.png" srcset="/img/loading.gif" alt="cmsScan"></p>
+<p><img src="/img/wz/cmsScan/cmsScan-2.png" srcset="/img/loading.gif" alt="cmsScan-2"></p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://github.com/Ruiruigo/cmsScan" target="_blank" rel="noopener">https://github.com/Ruiruigo/cmsScan</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/">安全工具</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/%E6%89%AB%E6%8F%8F%E5%99%A8/">扫描器</a>
+                    
+                  </div>
+                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+                      <a class="hover-with-bg" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
                     
                   </div>
                 
@@ -356,9 +275,9 @@ hexo deploy</code></pre>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/07/27/CobaltStrike/">
+                      <a href="/2020/07/31/%E9%AD%94%E6%94%B9%E5%86%B0%E8%9D%8E/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CobaltStrike</span>
+                        <span class="hidden-mobile">魔改冰蝎</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -366,43 +285,17 @@ hexo deploy</code></pre>
                   <article class="post-next col-6">
                     
                     
+                      <a href="/2020/07/27/CobaltStrike/">
+                        <span class="hidden-mobile">CobaltStrike</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
                   </article>
                 </div>
               
             </div>
 
-            
-              <!-- Comments -->
-              <article class="comments" id="comments">
-                
-                
-  <div id="vcomments"></div>
-  <script type="text/javascript">
-    function loadValine() {
-      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
-        new Valine({
-          el: "#vcomments",
-          app_id: "Mt0aT3o5jO93NtJzAjcbVtTd-gzGzoHsz",
-          app_key: "M7vbJxuLlDJod7LgDWDgLXjs",
-          placeholder: "说点什么",
-          path: window.location.pathname,
-          avatar: "retro",
-          meta: ["nick","mail","link"],
-          pageSize: "10",
-          lang: "zh-CN",
-          highlight: false,
-          recordIP: false,
-          serverURLs: "",
-        });
-      });
-    }
-    waitElementVisible('vcomments', loadValine);
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
-      powered by Valine.</a></noscript>
-
-
-              </article>
             
           </article>
         </div>
@@ -558,7 +451,7 @@ hexo deploy</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Hexo安装教程&nbsp;",
+        "CMS扫描器&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
